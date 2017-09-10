@@ -1,11 +1,24 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
- 
-<html>
-<head>
-<title>Hello World Template</title>
-</head>
-<body>
-Hello World
-</body>
-</html>
+{% extends "layout.html" %}
+{% block body %}
+ <TABLE  BORDER="5" style="width:95%">
+ 	<TR>
+      <TH COLSPAN="12">
+         <H3><BR>Market Cap Table</H3>
+      </TH>
+   </TR>
+      <TH COLSPAN="3">Name</TH>
+      <TH COLSPAN="3">Price</TH>
+      <TH COLSPAN="3">Market Cap Usd</TH>
+      <TH COLSPAN="3">Rank</TH>
+	{% for coin in coins %}
+   <TR>
+      <TD COLSPAN="3">{{coin.name}}</TD>
+      <TD COLSPAN="3">{{coin.price_usd}}</TD>
+      <TD COLSPAN="3">{{coin.market_cap_usd}}</TD>
+      <TD COLSPAN="3">{{coin.rank}}</TD>
+   </TR>
+	{% endfor %}
+	</TABLE>
+
+
+{% endblock %}
