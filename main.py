@@ -6,6 +6,7 @@ except ImportError:
     # Fall back to Python 2's urllib2
     from urllib2 import urlopen
 import json
+import os
 app = Flask(__name__)
 
 	
@@ -24,4 +25,5 @@ def hello():
 	return render_template('hello.html',**locals())
  
 if __name__ == "__main__":
+	  port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
