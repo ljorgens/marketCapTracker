@@ -1,5 +1,10 @@
 from flask import Flask, flash, redirect, render_template, request, session, abort
-import urllib2
+try:
+    # For Python 3.0 and later
+    from urllib.request import urlopen
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlopen
 import json
 app = Flask(__name__)
 
@@ -7,7 +12,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello():
 	coins = []
-	coinMarketCapApi = urllib2.urlopen('https://api.coinmarketcap.com/v1/ticker/')
+	coinMarketCapApi = urlopen('https://api.coinmarketcap.com/v1/ticker/')
 	if coinMarketCapApi.getcode() == 200:
 		data = json.load(coinMarketCapApi)
 		coins = data
