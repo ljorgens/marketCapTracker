@@ -106,7 +106,6 @@ def update_google_doc():
 				break
 			else:
 				cleanedCoins.append([coin['rank'], coin['name'], coin['market_cap_usd'], coin['price_usd']])
-		print(cleanedCoins)
 		writeToGoogleDoc(cleanedCoins)
 	else:
 		return "FAILED " + coinMarketCapApi.getcode()
