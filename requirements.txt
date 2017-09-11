@@ -1,3 +1,5 @@
 Flask==0.11
 gunicorn
 httplib2
+apiclient
+oauth2client
